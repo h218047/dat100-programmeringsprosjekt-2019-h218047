@@ -25,7 +25,6 @@ public class GPSUtils {
 
 		double min;
 		
-	
 		min = da[0];
 		
 		for (double d : da) {
