@@ -8,7 +8,7 @@ public class GPSDataConverter {
 	// konverter tidsinformasjon i gps data punkt til antall sekunder fra midnatt
 	// dvs. ignorer information om dato og omregn tidspunkt til sekunder
 	// Eksempel - tidsinformasjon (som String): 2017-08-13T08:52:26.000Z
-    // skal omregnes til sekunder (som int): 8 * 60 * 60 + 52 * 60 + 26 
+    // skal omregnes til sekunder (som int): 8 * 60 * 60 + 52 * 60 + 26
 	
 	private static int TIME_STARTINDEX = 11; // startindex for tidspunkt i timestr
 
