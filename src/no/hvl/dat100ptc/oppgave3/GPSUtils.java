@@ -2,6 +2,7 @@ package no.hvl.dat100ptc.oppgave3;
 
 import no.hvl.dat100ptc.TODO;
 import no.hvl.dat100ptc.oppgave1.GPSPoint;
+import no.hvl.dat100ptc.oppgave2.GPSDataFileReader;
 
 
 public class GPSUtils {
@@ -28,7 +29,7 @@ public class GPSUtils {
 		min = da[0];
 		
 		for (double d : da) {
-			if (d > min) {
+			if (d < min) {
 				min = d;
 			}
 		}
@@ -41,19 +42,29 @@ public class GPSUtils {
 	public static double[] getLatitudes(GPSPoint[] gpspoints) {
 
 		// TODO - START
+		double[] latitudes = new double[gpspoints.length];
+		for (int i = 0; i < latitudes.length; i++) {
+			latitudes[i] = gpspoints[i].getLatitude();
+			
+		}
 		
-		throw new UnsupportedOperationException(TODO.method());
+		return latitudes;
 		
-		// TODO - SLUTT
 	}
 
 	public static double[] getLongitudes(GPSPoint[] gpspoints) {
 
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
 		
-		// TODO - SLUTT
+
+		double[] longitudes = new double[gpspoints.length];
+		for (int i = 0; i < longitudes.length; i++) {
+			longitudes[i] = gpspoints[i].getLongitude();
+			
+		}
+		
+		return longitudes;
+		
+		
 
 	}
 
@@ -64,11 +75,23 @@ public class GPSUtils {
 		double d;
 		double latitude1, longitude1, latitude2, longitude2;
 
-		// TODO - START
 
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
+		latitude1 = gpspoint1.getLatitude();
+		longitude1 = gpspoint1.getLongitude();
+		latitude2 = gpspoint2.getLatitude();
+		longitude2 = gpspoint2.getLongitude();
+		
+		double phi1 = Math.toRadians(latitude1);
+		double phi2 = Math.toRadians(latitude2);
+		
+		double dphi = Math.toRadians(latitude2 - latitude1);
+		double ddelta = Math.toRadians(longitude2 - longitude1);
+		
+		double a = Math.pow(Math.sin(dphi/2), 2) + Math.cos(phi2) * Math.cos(phi2) * Math.pow(Math.sin(ddelta/2),2);
+		double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt (1-a));
+		d = R*c;
+		
+		return d;
 
 	}
 
@@ -78,8 +101,20 @@ public class GPSUtils {
 		double speed;
 
 		// TODO - START
+		
+		secs = (gpspoint2.getTime()-gpspoint1.getTime());
+		
+		double strekning = distance(gpspoint1, gpspoint2);
+		
+		double hr = (secs/60)/60;
+		
+		strekning = strekning * 1000;
+		
+		speed = strekning/hr;
+		
+		return speed;
 
-		throw new UnsupportedOperationException(TODO.method());
+		
 
 		// TODO - SLUTT
 

@@ -17,25 +17,35 @@ public class GPSDataConverter {
 		int secs;
 		int hr, min, sec;
 		
-		// TODO
-		// OPPGAVE - START
+		String start = timestr.substring(TIME_STARTINDEX);
 		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// OPPGAVE - SLUTT
+		hr = Integer.parseInt(start.substring(0,2));
+		min = Integer.parseInt(start.substring(3,5));
+		sec = Integer.parseInt(start.substring(6,8));
+		
+		secs = hr*60*60 + min* 60 + sec;
+		
+		return secs;
 		
 	}
 
 	public static GPSPoint convert(String timeStr, String latitudeStr, String longitudeStr, String elevationStr) {
 
 		GPSPoint gpspoint;
+		
+		int time = toSeconds(timeStr);
+		double latitude = Double.parseDouble(latitudeStr);
+		double longitude = Double.parseDouble(longitudeStr);
+		double elevation = Double.parseDouble(elevationStr);
 
 		// TODO - START ;
 		
-		throw new UnsupportedOperationException(TODO.method());
+		gpspoint = new GPSPoint(time, latitude, longitude, elevation);
+	
 
 		// OPPGAVE - SLUTT ;
-	    
+		
+	    return gpspoint;
 	}
 	
 }
