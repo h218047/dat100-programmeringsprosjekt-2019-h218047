@@ -24,9 +24,8 @@ public class GPSUtils {
 
 		double min;
 		
+	
 		min = da[0];
-		
-		// TODO - START
 		
 		for (double d : da) {
 			if (d > min) {
@@ -36,7 +35,8 @@ public class GPSUtils {
 		
 		return min;
 		
-		// TODO - SLUT
+	}
+		
 
 	public static double[] getLatitudes(GPSPoint[] gpspoints) {
 
