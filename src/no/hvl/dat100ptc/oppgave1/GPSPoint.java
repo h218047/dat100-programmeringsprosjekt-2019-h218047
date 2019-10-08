@@ -73,11 +73,11 @@ public class GPSPoint {
 		
 		String str;
 		
-		// TODO - start
+		str = time + " (" + latitude + "," + longitude + ")" + " " + elevation + "\n" ;
 
-		throw new UnsupportedOperationException(TODO.method());
+		return str;
 
-		// TODO - slutt
+		
 		
 	}
 }
