@@ -5,8 +5,6 @@ import javax.swing.JOptionPane;
 import easygraphics.*;
 import no.hvl.dat100ptc.TODO;
 import no.hvl.dat100ptc.oppgave1.GPSPoint;
-import no.hvl.dat100ptc.oppgave2.GPSData;
-import no.hvl.dat100ptc.oppgave2.GPSDataFileReader;
 import no.hvl.dat100ptc.oppgave3.GPSUtils;
 import no.hvl.dat100ptc.oppgave4.GPSComputer;
 
@@ -43,6 +41,7 @@ public class CycleComputer extends EasyGraphics {
 		launch(args);
 	}
 
+	@Override
 	public void run() {
 
 		N = gpspoints.length; // number of gps points

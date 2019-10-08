@@ -3,9 +3,6 @@ package no.hvl.dat100ptc.oppgave5;
 import easygraphics.EasyGraphics;
 import no.hvl.dat100ptc.TODO;
 import no.hvl.dat100ptc.oppgave1.GPSPoint;
-import no.hvl.dat100ptc.oppgave2.GPSData;
-import no.hvl.dat100ptc.oppgave2.GPSDataConverter;
-import no.hvl.dat100ptc.oppgave2.GPSDataFileReader;
 import no.hvl.dat100ptc.oppgave4.GPSComputer;
 
 import javax.swing.JOptionPane;
@@ -32,6 +29,7 @@ public class ShowProfile extends EasyGraphics {
 		launch(args);
 	}
 
+	@Override
 	public void run() {
 
 		int N = gpspoints.length; // number of data points
