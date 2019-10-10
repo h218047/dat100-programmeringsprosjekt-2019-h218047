@@ -41,7 +41,6 @@ public class GPSUtils {
 
 	public static double[] getLatitudes(GPSPoint[] gpspoints) {
 
-		// TODO - START
 		double[] latitudes = new double[gpspoints.length];
 		for (int i = 0; i < latitudes.length; i++) {
 			latitudes[i] = gpspoints[i].getLatitude();
@@ -53,8 +52,6 @@ public class GPSUtils {
 	}
 
 	public static double[] getLongitudes(GPSPoint[] gpspoints) {
-
-		
 
 		double[] longitudes = new double[gpspoints.length];
 		for (int i = 0; i < longitudes.length; i++) {
@@ -74,7 +71,6 @@ public class GPSUtils {
 
 		double d;
 		double latitude1, longitude1, latitude2, longitude2;
-
 
 		latitude1 = gpspoint1.getLatitude();
 		longitude1 = gpspoint1.getLongitude();
@@ -100,23 +96,20 @@ public class GPSUtils {
 		int secs;
 		double speed;
 
-		// TODO - START
+		secs = 	gpspoint2.getTime() - gpspoint1.getTime();
 		
-		secs = (gpspoint2.getTime()-gpspoint1.getTime());
+		speed = distance(gpspoint1, gpspoint2)/(secs*3600);
 		
-		double strekning = distance(gpspoint1, gpspoint2);
 		
-		double hr = (secs/60)/60;
+		return speed;
+		
+		/* double hr = (secs/60)/60;
 		
 		strekning = strekning * 1000;
 		
-		speed = strekning/hr;
+		speed = (strekning/hr);
 		
-		return speed;
-
-		
-
-		// TODO - SLUTT
+		return speed; */
 
 	}
 
@@ -127,7 +120,17 @@ public class GPSUtils {
 
 		// TODO - START
 
-		throw new UnsupportedOperationException(TODO.method());
+		int hours = (secs/3600);
+		
+		int minutes = hours/60;
+		
+		int seconds = secs;
+		
+		
+		timestr = " "+ hours + TIMESEP + minutes + minutes + TIMESEP + seconds + " " ;
+		
+		return timestr;
+		
 		
 		// TODO - SLUTT
 
@@ -140,8 +143,12 @@ public class GPSUtils {
 
 		// TODO - START
 
-		throw new UnsupportedOperationException(TODO.method());
-
+		d = Math.round(d*100.0)/100.0;
+		
+		str = Double.toString(d);
+		str = String.format("%1$10s", str);
+		
+		return str;
 		// TODO - SLUTT
 		
 	}
