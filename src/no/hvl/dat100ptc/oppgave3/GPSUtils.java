@@ -94,11 +94,10 @@ public class GPSUtils {
 	public static double speed(GPSPoint gpspoint1, GPSPoint gpspoint2) {
 
 		int secs;
-		double speed;
 
 		secs = 	gpspoint2.getTime() - gpspoint1.getTime();
-		
-		speed = distance(gpspoint1, gpspoint2)/(secs*3600);
+		double strekning = distance(gpspoint1, gpspoint2);
+		double speed = (strekning/1000.0)/(secs/3600.0);
 		
 		
 		return speed;
@@ -127,7 +126,7 @@ public class GPSUtils {
 		int seconds = secs;
 		
 		
-		timestr = " "+ hours + TIMESEP + minutes + minutes + TIMESEP + seconds + " " ;
+		timestr =" " + hours + TIMESEP + minutes + TIMESEP + seconds + " ";
 		
 		return timestr;
 		
