@@ -101,14 +101,6 @@ public class GPSUtils {
 		
 		
 		return speed;
-		
-		/* double hr = (secs/60)/60;
-		
-		strekning = strekning * 1000;
-		
-		speed = (strekning/hr);
-		
-		return speed; */
 
 	}
 
@@ -118,8 +110,21 @@ public class GPSUtils {
 		String TIMESEP = ":";
 
 		// TODO - START
+		
+		
+		int hours = secs / 3600;
+		secs -= 3600 * hours;
+		
+		int minutes = secs / 60;
+		secs -= 60 * minutes;
+		
+		int seconds = secs;
+		
+		timestr = String.format(" %02d:%02d:%02d", hours, minutes, seconds);
+		
+		return timestr;
 
-		int hours = (secs/3600);
+		/*int hours = (secs/3600);
 		
 		int minutes = hours/60;
 		
@@ -128,7 +133,7 @@ public class GPSUtils {
 		
 		timestr =" " + hours + TIMESEP + minutes + TIMESEP + seconds + " ";
 		
-		return timestr;
+		return timestr;*/
 		
 		
 		// TODO - SLUTT

@@ -27,7 +27,7 @@ public class GPSComputer {
 	// beregn total distances (i meter)
 	public double totalDistance() {
 
-		double distance = 0;
+		double distance = 0.0;
 
 		// TODO - START
 
@@ -37,7 +37,7 @@ public class GPSComputer {
 
 	}
 
-	// beregn totale hÃ¸ydemeter (i meter)
+	// beregn totale høydemeter (i meter)
 	public double totalElevation() {
 
 		double elevation = 0;
